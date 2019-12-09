@@ -34,6 +34,7 @@ ul {
 
 #gallery {
   display: flex;
+  padding: 20px 0;
 }
 
 .gallery__item {
