@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: rgb(104, 95, 95);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+#gallery {
+  display: flex;
+}
+
+.gallery__item {
+  padding: 2px;
+  border: 2px solid rgb(99, 96, 96);
+  overflow: hidden;
+}

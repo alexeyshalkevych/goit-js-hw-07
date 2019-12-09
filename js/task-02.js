@@ -22,6 +22,6 @@ const createListItem = elem => {
   return item;
 };
 
-const massListItems = ingredients.map(item => createListItem(item));
+const arrayListItems = ingredients.map(item => createListItem(item));
 
-ingredientsList.append(...massListItems);
+ingredientsList.append(...arrayListItems);
