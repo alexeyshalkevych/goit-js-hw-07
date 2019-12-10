@@ -7,12 +7,12 @@
 const inputValue = document.querySelector("#name-input");
 const currentValue = document.querySelector("#name-output");
 
-inputValue.addEventListener("input", handleInput);
-
-function handleInput(e) {
+const handlerInput = e => {
   if (!e.currentTarget.value.length) {
     currentValue.textContent = "незнакомец";
     return;
   }
   currentValue.textContent = e.currentTarget.value;
-}
+};
+
+inputValue.addEventListener("input", handlerInput);

@@ -22,6 +22,7 @@ const increment = () => {
 
   counterValue.textContent = value;
 };
+
 const decrement = () => {
   value -= 1;
 

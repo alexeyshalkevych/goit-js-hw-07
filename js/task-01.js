@@ -9,22 +9,10 @@
 // в консоль текст заголовка элемента (тега h2) и количество элементов
 // в категории (всех вложенных в него элементов li).
 
-
 const categories = document.querySelector("#categories");
 const items = document.querySelectorAll(".item");
 
 const totalCategories = elem => elem.children.length;
-
-console.log(`В списке ${totalCategories(categories)} категории.`);
-
-// const findTitleAndTotalElements = elem =>
-//   [...elem]
-//     .map(
-//       item =>
-//         `Категория: ${item.firstElementChild.textContent}.
-// Количество элементов: ${item.lastElementChild.children.length}.\n`
-//     )
-//     .join("");
 
 const findTitleAndTotalElements = elem => {
   return [...elem]
@@ -37,5 +25,7 @@ const findTitleAndTotalElements = elem => {
     })
     .join("");
 };
+
+console.log(`В списке ${totalCategories(categories)} категории.`);
 
 console.log(findTitleAndTotalElements(items));
