@@ -9,9 +9,9 @@
 
 const inputField = document.querySelector("#validation-input");
 
-const hendlerInputValidation = e => {
+const handlerInputValidation = e => {
   const valueDataLengthAttribute = Number(
-    e.currentTarget.getAttribute("data-length")
+    e.currentTarget.dataset.length
   );
   const valueInputLength = e.currentTarget.value.length;
 
@@ -24,4 +24,4 @@ const hendlerInputValidation = e => {
   }
 };
 
-inputField.addEventListener("blur", hendlerInputValidation);
+inputField.addEventListener("blur", handlerInputValidation);

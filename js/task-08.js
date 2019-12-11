@@ -20,27 +20,25 @@ const controlInput = document.querySelector("#controls > input");
 const renderButton = document.querySelector('button[data-action="render"]');
 const destroyButton = document.querySelector('button[data-action="destroy"]');
 
+const colorGenerator = () =>
+  `rgb(${Math.floor(Math.random() * 256)},${Math.floor(
+    Math.random() * 256
+  )},${Math.floor(Math.random() * 256)})`;
+
 const createBoxes = amount => {
   let size = 30;
 
   for (let i = 1; i <= amount; i++) {
     const item = document.createElement("div");
 
-    item.style.backgroundColor = `rgb(${Math.floor(
-      Math.random() * 256
-    )},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
-
-    if (i === 1) {
-      item.style.width = `${size}px`;
-      item.style.height = `${size}px`;
-    }
-
-    size += 10;
+    item.style.backgroundColor = colorGenerator();
 
     item.style.width = `${size}px`;
     item.style.height = `${size}px`;
 
     itemBoxes.appendChild(item);
+
+    size += 10;
   }
 };
 
@@ -48,9 +46,28 @@ const destroyBoxes = () => {
   itemBoxes.innerHTML = "";
 };
 
+const isValidNumbers = someValue => {
+  const inputMinAttribute = someValue.getAttribute("min");
+  const inputMaxAttribute = someValue.getAttribute("max");
+
+  if (
+    Number(inputMinAttribute) > someValue.value ||
+    Number(inputMaxAttribute) < someValue.value
+  ) {
+    return false;
+  }
+
+  return true;
+};
+
 renderButton.addEventListener("click", () => {
-  createBoxes(controlInput.value);
-  controlInput.value = "";
+  if (isValidNumbers(controlInput)) {
+    if (itemBoxes.children.length) {
+      destroyBoxes();
+    }
+
+    createBoxes(controlInput.value);
+  }
 });
 
 destroyButton.addEventListener("click", destroyBoxes);
