@@ -54,6 +54,10 @@ const isValidNumbers = someValue => {
     Number(inputMinAttribute) > someValue.value ||
     Number(inputMaxAttribute) < someValue.value
   ) {
+    console.error(
+      "Error: A number is entered that does not match the specified parameters."
+    );
+    destroyBoxes();
     return false;
   }
 
