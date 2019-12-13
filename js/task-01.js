@@ -15,8 +15,8 @@ const items = document.querySelectorAll(".item");
 const totalCategories = elem => elem.children.length;
 
 const findTitleAndTotalElements = elem => {
-  return [...elem]
-    .map(item => {
+  return [].map
+    .call(elem, item => {
       const itemTitle = item.querySelector("h2");
       const itemList = item.querySelector("ul");
 
@@ -26,6 +26,13 @@ const findTitleAndTotalElements = elem => {
     .join("");
 };
 
-console.log(`В списке ${totalCategories(categories)} категории.`);
+// items.forEach(element => {
+//   console.log(`Категория: ${element.querySelector("h2").textContent}.`);
+//   console.log(
+//     `Количество элементов: ${element.querySelector("ul").children.length}.`
+//   );
+// });
 
-console.log(findTitleAndTotalElements(items));
+// console.log(`В списке ${totalCategories(categories)} категории.`);
+
+// console.log(findTitleAndTotalElements(items));

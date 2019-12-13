@@ -10,18 +10,16 @@
 const inputField = document.querySelector("#validation-input");
 
 const handlerInputValidation = e => {
-  const valueDataLengthAttribute = Number(
-    e.currentTarget.dataset.length
-  );
+  const valueDataLengthAttribute = Number(e.currentTarget.dataset.length);
   const valueInputLength = e.currentTarget.value.length;
 
   if (valueDataLengthAttribute === valueInputLength) {
     inputField.classList.add("valid");
     inputField.classList.remove("invalid");
-  } else {
-    inputField.classList.remove("valid");
-    inputField.classList.add("invalid");
+    return;
   }
+  inputField.classList.remove("valid");
+  inputField.classList.add("invalid");
 };
 
 inputField.addEventListener("blur", handlerInputValidation);

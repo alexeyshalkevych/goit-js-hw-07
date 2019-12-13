@@ -32,17 +32,16 @@ const images = [
 const galleryList = document.querySelector("#gallery");
 
 const createListItemMarkup = ({ url, alt }) => {
-  const item = `
+  return `
   <li class="gallery__item">
     <img src="${url}" alt="${alt}" class="gallery__image">
   </li>
   `;
-
-  return item;
 };
 
 const createListItem = items =>
   items.reduce((markup, item) => (markup += createListItemMarkup(item)), "");
 
 const murkup = createListItem(images);
-galleryList.insertAdjacentHTML("beforeend", murkup);
+// galleryList.insertAdjacentHTML("beforeend", murkup);
+galleryList.innerHTML = murkup;
