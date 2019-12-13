@@ -33,6 +33,6 @@ const findTitleAndTotalElements = elem => {
 //   );
 // });
 
-// console.log(`В списке ${totalCategories(categories)} категории.`);
+console.log(`В списке ${totalCategories(categories)} категории.`);
 
-// console.log(findTitleAndTotalElements(items));
+console.log(findTitleAndTotalElements(items));
